@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calabash Roots Travel — Explore Ghana's Rich Heritage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ==================== DARK THEME ==================== */
+        [data-theme="dark"] {
+            --bg-primary: #0a0a0f; --bg-secondary: #12121a;
+            --glass-bg: rgba(20, 20, 35, 0.6); --glass-bg-strong: rgba(20, 20, 35, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.1); --glass-hover: rgba(255, 255, 255, 0.08);
+            --glass-active: rgba(255, 255, 255, 0.15);
+            --text-primary: #ffffff; --text-secondary: #c0c0d0; --text-muted: #9090a5;
+            --accent-teal: #5fe0d9; --accent-gold: #ffe566; --accent-purple: #b89dfa;
+            --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            --nav-bg: rgba(15, 15, 25, 0.7); --nav-blur: blur(30px) saturate(180%);
+            --nav-border: rgba(255, 255, 255, 0.08); --nav-scrolled-bg: rgba(10, 10, 20, 0.9);
+            --badge-bg: rgba(0, 0, 0, 0.75); --badge-border: rgba(255, 255, 255, 0.25); --badge-color: #ffffff;
+            --input-bg: rgba(255, 255, 255, 0.08); --input-border: rgba(255, 255, 255, 0.15);
+            --input-focus-bg: rgba(255, 255, 255, 0.12); --input-focus-border: rgba(255, 255, 255, 0.35);
+            --input-text: #ffffff; --input-placeholder: #9999aa;
+            --mobile-menu-bg: rgba(10, 10, 20, 0.98); --mobile-menu-blur: blur(40px) saturate(180%);
+            --mobile-menu-border: rgba(255, 255, 255, 0.08);
+            --footer-border: rgba(255, 255, 255, 0.1); --footer-bg: rgba(255, 255, 255, 0.03);
+            --toggle-bg: rgba(255, 255, 255, 0.08); --toggle-color: #f0c040;
+            --card-hover-border: rgba(255, 255, 255, 0.2);
+            --gradient-highlight: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #ffd93d 100%);
+            --gradient-purple: linear-gradient(135deg, #667eea 0%, #b89dfa 100%);
+            --overlay-bg: rgba(0, 0, 0, 0.8);
+            --carousel-nav-bg: rgba(255, 255, 255, 0.08); --carousel-dot-active: #667eea; --carousel-dot-inactive: rgba(255, 255, 255, 0.3);
+            --contact-info-bg: rgba(255, 255, 255, 0.05); --contact-info-border: rgba(255, 255, 255, 0.1);
+            --nav-item-glass: rgba(255, 255, 255, 0.05); --nav-item-hover-glass: rgba(255, 255, 255, 0.12);
+            --menu-item-bg: rgba(255, 255, 255, 0.03); --menu-item-hover: rgba(102, 126, 234, 0.15);
+            --menu-icon-bg: rgba(102, 126, 234, 0.15); --menu-icon-color: #667eea;
+            --gallery-overlay: rgba(0, 0, 0, 0.7); --lightbox-bg: rgba(0, 0, 0, 0.95);
+            --menu-divider: rgba(255, 255, 255, 0.06); --menu-accent-border: #667eea;
+        }
+        [data-theme="light"] {
+            --bg-primary: #f0f0f5; --bg-secondary: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.6); --glass-bg-strong: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(0, 0, 0, 0.08); --glass-hover: rgba(0, 0, 0, 0.04); --glass-active: rgba(0, 0, 0, 0.08);
+            --text-primary: #111118; --text-secondary: #444455; --text-muted: #6e6e7e;
+            --accent-teal: #2d9d94; --accent-gold: #c49b1a; --accent-purple: #6b4fd4;
+            --card-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+            --nav-bg: rgba(255, 255, 255, 0.7); --nav-blur: blur(30px) saturate(180%); --nav-border: rgba(0, 0, 0, 0.06); --nav-scrolled-bg: rgba(255, 255, 255, 0.9);
+            --badge-bg: rgba(255, 255, 255, 0.9); --badge-border: rgba(0, 0, 0, 0.1); --badge-color: #111118;
+            --input-bg: rgba(0, 0, 0, 0.04); --input-border: rgba(0, 0, 0, 0.1); --input-focus-bg: rgba(0, 0, 0, 0.06); --input-focus-border: rgba(0, 0, 0, 0.2);
+            --input-text: #111118; --input-placeholder: #888899;
+            --mobile-menu-bg: rgba(255, 255, 255, 0.98); --mobile-menu-blur: blur(40px) saturate(180%);
+            --mobile-menu-border: rgba(0, 0, 0, 0.06);
+            --footer-border: rgba(0, 0, 0, 0.06); --footer-bg: rgba(0, 0, 0, 0.02);
+            --toggle-bg: rgba(0, 0, 0, 0.06); --toggle-color: #6b4fd4;
+            --card-hover-border: rgba(0, 0, 0, 0.12);
+            --gradient-highlight: linear-gradient(135deg, #e044a0 0%, #d4445a 50%, #e0a800 100%);
+            --gradient-purple: linear-gradient(135deg, #5a4fd4 0%, #8b6fe0 100%);
+            --overlay-bg: rgba(0, 0, 0, 0.6);
+            --carousel-nav-bg: rgba(0, 0, 0, 0.06); --carousel-dot-active: #667eea; --carousel-dot-inactive: rgba(0, 0, 0, 0.25);
+            --contact-info-bg: rgba(0, 0, 0, 0.03); --contact-info-border: rgba(0, 0, 0, 0.08);
+            --nav-item-glass: rgba(255, 255, 255, 0.4); --nav-item-hover-glass: rgba(0, 0, 0, 0.06);
+            --menu-item-bg: rgba(0, 0, 0, 0.02); --menu-item-hover: rgba(102, 126, 234, 0.1);
+            --menu-icon-bg: rgba(102, 126, 234, 0.1); --menu-icon-color: #667eea;
+            --gallery-overlay: rgba(0, 0, 0, 0.5); --lightbox-bg: rgba(255, 255, 255, 0.98);
+            --menu-divider: rgba(0, 0, 0, 0.06); --menu-accent-border: #667eea;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; transition: background-color 0.4s ease, color 0.4s ease; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--overlay-bg); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); cursor: pointer; }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
+        .highlight { background: var(--gradient-highlight); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent; display: inline-block; }
+        .label-gradient { background: var(--gradient-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent; display: inline-block; font-weight: 700; }
+        .bg-ambient { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .bg-orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.1; animation: float 20s infinite ease-in-out; }
+        [data-theme="light"] .bg-orb { opacity: 0.04; }
+        .bg-orb:nth-child(1) { width: 600px; height: 600px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); top: -200px; right: -100px; }
+        .bg-orb:nth-child(2) { width: 500px; height: 500px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); bottom: -150px; left: -100px; animation-delay: -7s; }
+        .bg-orb:nth-child(3) { width: 400px; height: 400px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: -14s; }
+        @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(30px, -30px) scale(1.05); } 66% { transform: translate(-20px, 20px) scale(0.95); } }
+        .main-wrapper { position: relative; z-index: 1; }
+
+        /* ==================== SCROLL REVEAL ANIMATIONS ==================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-left.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-right.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-scale.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Staggered delays */
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* ==================== LAZY LOADING PLACEHOLDER ==================== */
+        img[loading="lazy"] {
+            background: var(--glass-bg-strong);
+            transition: opacity 0.5s ease;
+        }
+        img[loading="lazy"].loaded {
+            background: transparent;
+        }
+
+        /* Navbar */
+        .nav-glass { position: fixed; top: 0; left: 0; right: 0; background: var(--nav-bg); backdrop-filter: var(--nav-blur); -webkit-backdrop-filter: var(--nav-blur); border-bottom: 1px solid var(--nav-border); z-index: 1000; height: 68px; transition: all 0.4s ease; }
+        .nav-glass.scrolled { background: var(--nav-scrolled-bg); box-shadow: var(--card-shadow); }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 100%; }
+        .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--text-primary); text-decoration: none; cursor: pointer; }
+        .nav-logo .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: white; }
+        .nav-right { display: flex; align-items: center; gap: 10px; }
+        .nav-icon-btn { width: 40px; height: 40px; border-radius: 12px; background: var(--nav-item-glass); backdrop-filter: blur(15px); border: 1px solid var(--glass-border); color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: all 0.3s ease; }
+        .nav-icon-btn:hover { background: var(--nav-item-hover-glass); color: var(--text-primary); }
+        .theme-toggle-btn { color: var(--toggle-color); }
+        .menu-toggle-btn { color: var(--text-primary); font-size: 1.1rem; }
+        @media (min-width: 1025px) { .menu-toggle-btn { display: none; } }
+        @media (max-width: 1024px) { .menu-toggle-btn { display: flex; } .nav-container { padding: 0 20px; } }
+
+        /* Slide Menu */
+        .slide-menu { position: fixed; top: 0; right: -100%; width: 100%; max-width: 440px; height: 100vh; background: var(--mobile-menu-bg); backdrop-filter: var(--mobile-menu-blur); -webkit-backdrop-filter: var(--mobile-menu-blur); z-index: 1001; transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; box-shadow: -25px 0 80px rgba(0,0,0,0.5); overflow-y: auto; }
+        .slide-menu.active { right: 0; }
+        .slide-menu-top-bar { display: flex; align-items: center; justify-content: space-between; padding: 20px 28px; border-bottom: 1px solid var(--menu-divider); }
+        .slide-menu-brand { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--text-primary); }
+        .slide-menu-brand .brand-icon { width: 36px; height: 36px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: white; }
+        .slide-menu-close { width: 40px; height: 40px; border-radius: 12px; background: var(--nav-item-glass); border: 1px solid var(--glass-border); color: var(--text-primary); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: all 0.3s ease; }
+        .slide-menu-close:hover { background: var(--nav-item-hover-glass); transform: rotate(90deg); }
+        .slide-menu-body { flex: 1; padding: 24px 20px; display: flex; flex-direction: column; gap: 4px; overflow-y: auto; }
+        .menu-section { margin-bottom: 8px; }
+        .menu-section-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 12px 16px 8px; font-weight: 700; }
+        .slide-menu-links { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+        .slide-menu-links a { display: flex; align-items: center; gap: 14px; color: var(--text-secondary); text-decoration: none; padding: 14px 16px; border-radius: 14px; font-size: 0.95rem; font-weight: 500; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); background: transparent; border: 1px solid transparent; cursor: pointer; position: relative; overflow: hidden; }
+        .slide-menu-links a::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 3px; height: 0; background: var(--menu-accent-border); border-radius: 0 4px 4px 0; transition: height 0.3s ease; }
+        .slide-menu-links a:hover { color: var(--text-primary); background: var(--menu-item-hover); border-color: var(--glass-border); }
+        .slide-menu-links a:hover::before { height: 60%; }
+        .slide-menu-links a i { width: 38px; height: 38px; border-radius: 10px; background: var(--menu-icon-bg); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--menu-icon-color); transition: all 0.3s ease; flex-shrink: 0; }
+        .slide-menu-links a:hover i { background: rgba(102,126,234,0.25); transform: scale(1.1); }
+        .slide-menu-links a .menu-arrow { margin-left: auto; font-size: 0.7rem; opacity: 0; transform: translateX(-10px); transition: all 0.3s ease; color: var(--accent-teal); }
+        .slide-menu-links a:hover .menu-arrow { opacity: 1; transform: translateX(0); }
+        .slide-menu-cta-wrapper { padding: 16px 20px; margin-top: 8px; }
+        .slide-menu-cta { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; font-weight: 700; font-size: 1rem; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 20px rgba(102,126,234,0.4); transition: all 0.3s ease; cursor: pointer; border: none; }
+        .slide-menu-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(102,126,234,0.5); background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); }
+        .slide-menu-footer { padding: 20px 28px; border-top: 1px solid var(--menu-divider); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .slide-menu-footer span { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-right: auto; }
+        .slide-menu-footer a { width: 38px; height: 38px; border-radius: 10px; background: var(--menu-item-bg); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-secondary); text-decoration: none; transition: all 0.3s ease; font-size: 0.85rem; }
+        .slide-menu-footer a:hover { color: var(--text-primary); background: var(--menu-item-hover); transform: translateY(-2px); }
+
+        /* Hero */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 108px 40px 80px; text-align: center; }
+        .hero-content { max-width: 1400px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 60px; }
+        .hero-text { display: flex; flex-direction: column; align-items: center; max-width: 800px; animation: fadeInUp 0.8s ease-out; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--badge-bg); backdrop-filter: blur(20px); border: 1px solid var(--badge-border); border-radius: 100px; padding: 10px 22px; font-size: 0.85rem; font-weight: 600; color: var(--badge-color); margin-bottom: 32px; }
+        .hero-badge .dot { width: 10px; height: 10px; background: var(--accent-teal); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 24px; max-width: 700px; }
+        .hero-description { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 40px; max-width: 550px; }
+        .hero-stats { display: flex; gap: 48px; margin-bottom: 40px; justify-content: center; }
+        .stat-item { text-align: center; } .stat-item h3 { font-size: 2.2rem; font-weight: 800; color: whitesmoke; } .stat-item p { font-size: 0.85rem; color: #d0d0d0; font-weight: 500; text-transform: uppercase; }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+        .btn { padding: 16px 32px; border-radius: 100px; font-size: 1rem; font-weight: 700; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; transition: all 0.3s ease; }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; box-shadow: 0 4px 15px rgba(102,126,234,0.4); }
+        .btn-primary:hover { transform: translateY(-2px); }
+        .btn-glass { background: var(--glass-bg); backdrop-filter: blur(20px); border: 2px solid var(--glass-border); color: var(--text-primary); }
+
+        /* Gallery */
+        .gallery-section { padding: 80px 40px; } .gallery-container { max-width: 1400px; margin: 0 auto; } .gallery-header { text-align: center; margin-bottom: 48px; }
+        .section-label { display: inline-block; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; background: rgba(120,100,220,0.1); padding: 8px 20px; border-radius: 100px; border: 1px solid rgba(120,100,220,0.2); }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; margin-bottom: 16px; }
+        .gallery-subtitle { font-size: 1.15rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+        .gallery-filters { display: flex; justify-content: center; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; }
+        .gallery-filter { padding: 10px 22px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 2px solid var(--glass-border); background: var(--glass-bg); color: var(--text-secondary); transition: all 0.3s ease; backdrop-filter: blur(10px); }
+        .gallery-filter:hover { border-color: var(--card-hover-border); color: var(--text-primary); background: var(--glass-hover); }
+        .gallery-filter.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-color: transparent; }
+        .masonry-grid { columns: 4; column-gap: 20px; }
+        .masonry-item { break-inside: avoid; margin-bottom: 20px; position: relative; border-radius: 16px; overflow: hidden; cursor: pointer; transition: all 0.4s ease; background: var(--glass-bg-strong); border: 1px solid var(--glass-border); }
+        .masonry-item:hover { transform: translateY(-4px); box-shadow: var(--card-shadow); border-color: var(--card-hover-border); }
+        .masonry-item img, .masonry-item video { width: 100%; display: block; transition: transform 0.6s ease; }
+        .masonry-item:hover img, .masonry-item:hover video { transform: scale(1.05); }
+        .masonry-item.video-item::before { content: '\f144'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: white; z-index: 2; pointer-events: none; text-shadow: 0 4px 20px rgba(0,0,0,0.5); transition: all 0.3s ease; opacity: 0.9; }
+        .masonry-item.video-item:hover::before { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+        .masonry-item.video-item::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--gallery-overlay); z-index: 1; transition: all 0.3s ease; }
+        .masonry-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(transparent, rgba(0,0,0,0.8)); z-index: 2; opacity: 0; transform: translateY(10px); transition: all 0.4s ease; }
+        .masonry-item:hover .masonry-overlay { opacity: 1; transform: translateY(0); }
+        .masonry-overlay h4 { font-size: 1rem; font-weight: 700; color: white; margin-bottom: 4px; } .masonry-overlay span { font-size: 0.75rem; color: #c0c0d0; text-transform: uppercase; }
+        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--lightbox-bg); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; cursor: pointer; }
+        .lightbox.active { opacity: 1; visibility: visible; } .lightbox-content { max-width: 90vw; max-height: 85vh; position: relative; }
+        .lightbox-content img, .lightbox-content video { max-width: 100%; max-height: 85vh; border-radius: 12px; object-fit: contain; }
+        .lightbox-close { position: absolute; top: -50px; right: 0; width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.3s ease; }
+        .lightbox-close:hover { background: rgba(255,255,255,0.2); transform: rotate(90deg); }
+        .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: all 0.3s ease; }
+        .lightbox-prev { left: -60px; } .lightbox-next { right: -60px; }
+
+        /* Plan Your Adventure */
+        .search-section { padding: 0 40px 80px; }
+        .hero-search-card { background: var(--glass-bg-strong); backdrop-filter: blur(30px); border: 2px solid var(--glass-border); border-radius: 32px; padding: 40px; width: 100%; max-width: 700px; margin: 0 auto; }
+        .search-card-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 28px; font-family: 'Playfair Display', serif; text-align: center; }
+        .search-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .search-field { display: flex; flex-direction: column; gap: 8px; }
+        .search-field label { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+        .search-field select { background: var(--input-bg); border: 2px solid var(--input-border); border-radius: 12px; padding: 14px 16px; color: var(--text-primary); font-size: 0.95rem; font-family: 'Inter', sans-serif; width: 100%; }
+        .search-submit { grid-column: 1 / -1; margin-top: 8px; }
+
+        /* Sections */
+        .section { padding: 80px 40px; } .section-container { max-width: 1400px; margin: 0 auto; } .section-header { text-align: center; margin-bottom: 48px; }
+        .tours-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 28px; }
+        .tour-card { background: var(--glass-bg-strong); backdrop-filter: blur(20px); border: 2px solid var(--glass-border); border-radius: 24px; overflow: hidden; transition: all 0.4s ease; cursor: pointer; display: flex; flex-direction: column; }
+        .tour-card:hover { transform: translateY(-8px); border-color: var(--card-hover-border); }
+        .tour-image { height: 240px; overflow: hidden; position: relative; } .tour-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .tour-card:hover .tour-image img { transform: scale(1.08); }
+        .tour-badge { position: absolute; top: 16px; right: 16px; background: var(--badge-bg); backdrop-filter: blur(15px); border: 2px solid var(--badge-border); border-radius: 100px; padding: 8px 16px; font-size: 0.75rem; font-weight: 700; color: var(--badge-color); }
+        .tour-content { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+        .tour-destination { font-size: 0.8rem; color: var(--accent-teal); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+        .tour-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; }
+        .tour-content p { color: var(--text-secondary); font-size: 0.9rem; flex: 1; }
+        .tour-meta { display: flex; gap: 16px; margin-bottom: 14px; font-size: 0.8rem; color: var(--text-muted); } .tour-meta i { color: var(--accent-teal); }
+        .tour-footer { display: flex; justify-content: space-between; padding-top: 18px; border-top: 2px solid var(--glass-border); margin-top: auto; }
+        .tour-price { font-size: 1.3rem; font-weight: 800; } .tour-price span { font-size: 0.75rem; color: var(--text-muted); } .tour-rating { color: var(--accent-gold); font-weight: 600; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .feature-card { background: var(--glass-bg-strong); backdrop-filter: blur(20px); border: 2px solid var(--glass-border); border-radius: 24px; padding: 36px 32px; text-align: center; transition: all 0.4s ease; }
+        .feature-card:hover { border-color: var(--card-hover-border); transform: translateY(-4px); }
+        .feature-icon { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; color: white; }
+        .feature-icon.blue { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); } .feature-icon.pink { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); } .feature-icon.teal { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); } .feature-icon.green { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .feature-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; } .feature-card p { color: var(--text-secondary); font-size: 0.9rem; }
+        .testimonial-carousel { position: relative; overflow: hidden; padding: 20px 0; }
+        .testimonial-track { display: flex; transition: transform 0.6s ease; } .testimonial-slide { min-width: 100%; padding: 0 20px; display: flex; justify-content: center; }
+        .testimonial-card { background: var(--glass-bg-strong); backdrop-filter: blur(20px); border: 2px solid var(--glass-border); border-radius: 24px; padding: 36px; max-width: 650px; width: 100%; text-align: center; }
+        .testimonial-avatar-large { width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.3rem; color: white; margin: 0 auto 16px; }
+        .testimonial-stars { color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 16px; } .testimonial-text { font-size: 1rem; color: var(--text-secondary); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+        .testimonial-name { font-weight: 700; font-size: 1rem; } .testimonial-trip { font-size: 0.8rem; color: var(--text-muted); } .testimonial-location { font-size: 0.75rem; color: var(--accent-teal); font-weight: 600; margin-top: 2px; }
+        .carousel-nav { display: flex; justify-content: center; align-items: center; gap: 14px; margin-top: 28px; }
+        .carousel-prev, .carousel-next { width: 44px; height: 44px; border-radius: 12px; background: var(--carousel-nav-bg); border: 2px solid var(--glass-border); color: var(--text-primary); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; transition: all 0.3s ease; }
+        .carousel-prev:hover, .carousel-next:hover { background: var(--glass-hover); transform: scale(1.1); } .carousel-dots { display: flex; gap: 8px; }
+        .carousel-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--carousel-dot-inactive); border: none; cursor: pointer; transition: all 0.3s ease; }
+        .carousel-dot.active { background: var(--carousel-dot-active); transform: scale(1.3); }
+
+        /* Contact */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1200px; margin: 0 auto; }
+        .contact-info { display: flex; flex-direction: column; gap: 20px; }
+        .contact-info-item { display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--contact-info-bg); border: 1px solid var(--contact-info-border); border-radius: 14px; }
+        .contact-info-icon { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: white; flex-shrink: 0; }
+        .contact-info-content h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 2px; } .contact-info-content p { font-size: 0.85rem; color: var(--text-secondary); }
+        .contact-social { display: flex; gap: 10px; margin-top: 4px; }
+        .contact-social a { width: 40px; height: 40px; border-radius: 10px; background: var(--glass-hover); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-secondary); text-decoration: none; transition: all 0.3s ease; }
+        .contact-social a:hover { color: var(--text-primary); background: var(--glass-active); transform: translateY(-2px); }
+        .contact-form-card { background: var(--glass-bg-strong); backdrop-filter: blur(20px); border: 2px solid var(--glass-border); border-radius: 24px; padding: 36px; }
+        .contact-form { display: flex; flex-direction: column; gap: 18px; } .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; } .form-group label { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+        .form-group input, .form-group textarea, .form-group select { background: var(--input-bg); border: 2px solid var(--input-border); border-radius: 10px; padding: 12px 14px; color: var(--input-text); font-size: 0.9rem; font-family: 'Inter', sans-serif; width: 100%; }
+        .form-group textarea { min-height: 100px; resize: vertical; }
+        .form-submit-btn { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border: none; border-radius: 12px; padding: 14px 24px; font-size: 0.95rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(102,126,234,0.4); width: fit-content; }
+        .form-submit-btn:hover { transform: translateY(-2px); }
+
+        /* Footer */
+        .footer { background: var(--footer-bg); backdrop-filter: blur(30px); border-top: 2px solid var(--footer-border); padding: 48px 40px 24px; }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 32px; }
+        .footer-brand { display: flex; flex-direction: column; } .footer-brand .nav-logo { margin-bottom: 12px; display: inline-flex; }
+        .footer-brand p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px; max-width: 350px; }
+        .footer-social { display: flex; gap: 10px; }
+        .footer-social a { width: 42px; height: 42px; border-radius: 12px; background: var(--glass-hover); border: 2px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-secondary); text-decoration: none; transition: all 0.3s ease; }
+        .footer-social a:hover { color: var(--text-primary); background: var(--glass-active); transform: translateY(-2px); }
+        .footer-links-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; grid-column: 2 / -1; }
+        .footer-links-column h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; color: var(--text-muted); font-weight: 700; }
+        .footer-links-list { display: flex; flex-direction: column; gap: 10px; list-style: none; }
+        .footer-links-list a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease; cursor: pointer; }
+        .footer-links-list a:hover { color: var(--text-primary); }
+        .footer-bottom { padding-top: 24px; border-top: 2px solid var(--footer-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .footer-bottom p { font-size: 0.85rem; color: var(--text-muted); }
+        .footer-payment { display: flex; gap: 10px; align-items: center; }
+        .footer-payment span { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+        .footer-payment i { font-size: 1.6rem; color: var(--text-secondary); }
+
+        @media (max-width: 1200px) { .masonry-grid { columns: 3; } }
+        @media (max-width: 1024px) {
+            .hero { padding: 92px 20px 60px; } .hero h1 { font-size: 3rem; }
+            .gallery-section, .section, .search-section { padding: 60px 20px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; } .footer-links-wrapper { grid-column: 1; } .footer-brand { text-align: center; align-items: center; } .footer-brand p { max-width: 100%; } .footer-social { justify-content: center; }
+            .slide-menu { max-width: 100vw; }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.4rem; } .hero-stats { gap: 20px; flex-wrap: wrap; }
+            .section-title { font-size: 2.2rem; }
+            .tours-grid { grid-template-columns: 1fr; } .features-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } .search-grid { grid-template-columns: 1fr; }
+            .footer { padding: 32px 20px 16px; } .footer-links-wrapper { grid-template-columns: 1fr; } .footer-links-column { text-align: center; } .footer-bottom { flex-direction: column; text-align: center; } .footer-payment { justify-content: center; }
+        }
+        @media (max-width: 480px) { .hero h1 { font-size: 2rem; } .hero-buttons { flex-direction: column; align-items: center; } .hero-stats { gap: 14px; } .stat-item h3 { font-size: 1.6rem; } }
+        @media (max-width: 900px) { .masonry-grid { columns: 2; } .lightbox-prev { left: -40px; } .lightbox-next { right: -40px; } }
+        @media (max-width: 600px) { .masonry-grid { columns: 1; } .lightbox-prev { left: 10px; } .lightbox-next { right: 10px; } }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="bg-ambient"><div class="bg-orb"></div><div class="bg-orb"></div><div class="bg-orb"></div></div>
+
+    <div class="main-wrapper">
+        <nav class="nav-glass" id="navbar">
+            <div class="nav-container">
+                <a href="#" class="nav-logo"><span class="logo-icon">✧</span> Calabash Roots Travel</a>
+                <div class="nav-right">
+                    <button class="nav-icon-btn theme-toggle-btn" id="themeToggle"><i class="fas fa-sun"></i></button>
+                    <button class="menu-toggle-btn nav-icon-btn" id="menuToggle"><i class="fas fa-bars-staggered"></i></button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="slide-menu" id="slideMenu">
+            <div class="slide-menu-top-bar"><div class="slide-menu-brand"><div class="brand-icon">✧</div>Calabash Roots</div><button class="slide-menu-close" id="menuClose"><i class="fas fa-times"></i></button></div>
+            <div class="slide-menu-body">
+                <div class="menu-section"><p class="menu-section-title">Main Navigation</p><ul class="slide-menu-links"><li><a href="#home" onclick="closeMenu()"><i class="fas fa-home"></i> Home<span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a></li><li><a href="#gallery" onclick="closeMenu()"><i class="fas fa-images"></i> Gallery<span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a></li><li><a href="#tours" onclick="closeMenu()"><i class="fas fa-compass"></i> Tours<span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a></li></ul></div>
+                <div class="menu-section"><p class="menu-section-title">Discover</p><ul class="slide-menu-links"><li><a href="#about" onclick="closeMenu()"><i class="fas fa-info-circle"></i> About Us<span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a></li><li><a href="#testimonials" onclick="closeMenu()"><i class="fas fa-star"></i> Traveler Stories<span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a></li><li><a href="#contact-section" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact<span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a></li></ul></div>
+                <div class="slide-menu-cta-wrapper"><a href="#contact-section" class="slide-menu-cta" onclick="closeMenu()"><i class="fas fa-paper-plane"></i> Plan My Trip</a></div>
+            </div>
+            <div class="slide-menu-footer"><span>Follow Us</span><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
+        </div>
+
+        <!-- Hero with reveal animations -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge"><span class="dot"></span> Discover the Heart of West Africa</div>
+                    <h1>Explore Ghana's <span class="highlight">Rich Heritage</span> & Natural Beauty</h1>
+                    <p class="hero-description">From historic castles to lush rainforests, experience Ghana with Calabash Roots Travel.</p>
+                    <div class="hero-stats reveal" data-reveal="up">
+                        <div class="stat-item"><h3>333K+</h3><p>Visitors (2024)</p></div>
+                        <div class="stat-item reveal-delay-1"><h3>10+</h3><p>Landmarks</p></div>
+                        <div class="stat-item reveal-delay-2"><h3>4</h3><p>Regions</p></div>
+                    </div>
+                    <div class="hero-buttons reveal reveal-delay-3" data-reveal="up">
+                        <a href="#gallery" class="btn btn-primary"><i class="fas fa-images"></i> View Gallery</a>
+                        <a href="#contact-section" class="btn btn-glass"><i class="fas fa-comment"></i> Free Quote</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery with lazy loading -->
+        <section class="gallery-section" id="gallery">
+            <div class="gallery-container">
+                <div class="gallery-header reveal" data-reveal="up">
+                    <span class="section-label"><span class="label-gradient">Our Gallery</span></span>
+                    <h2 class="section-title">Experience <span class="highlight">Ghana</span> Through Our Lens</h2>
+                    <p class="gallery-subtitle">A visual journey through Ghana's most breathtaking destinations.</p>
+                </div>
+                <div class="gallery-filters reveal reveal-delay-1" data-reveal="up">
+                    <button class="gallery-filter active" data-filter="all">All</button>
+                    <button class="gallery-filter" data-filter="nature">Nature</button>
+                    <button class="gallery-filter" data-filter="historical">Historical</button>
+                    <button class="gallery-filter" data-filter="cultural">Cultural</button>
+                    <button class="gallery-filter" data-filter="beach">Beaches</button>
+                    <button class="gallery-filter" data-filter="video">Videos</button>
+                </div>
+                <div class="masonry-grid" id="masonryGrid">
+                    <div class="masonry-item reveal reveal-scale" data-category="nature"><img src="https://images.unsplash.com/photo-1590083949954-2afcfd8c6a3e?w=600&h=800&fit=crop" alt="Kakum" loading="lazy"><div class="masonry-overlay"><h4>Kakum Canopy Walk</h4><span>Central Region</span></div></div>
+                    <div class="masonry-item reveal reveal-scale reveal-delay-1" data-category="nature"><img src="https://images.unsplash.com/photo-1504541891213-7a1e0f3b8df7?w=600&h=500&fit=crop" alt="Aburi" loading="lazy"><div class="masonry-overlay"><h4>Aburi Botanical Gardens</h4><span>Eastern Region</span></div></div>
+                    <div class="masonry-item reveal reveal-scale reveal-delay-2" data-category="nature"><img src="https://images.unsplash.com/photo-1598901865264-4f4a2e5f2b5c?w=600&h=900&fit=crop" alt="Wli" loading="lazy"><div class="masonry-overlay"><h4>Wli Waterfalls</h4><span>Volta Region</span></div></div>
+                    <div class="masonry-item video-item reveal reveal-scale reveal-delay-3" data-category="nature video"><video poster="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&h=400&fit=crop" preload="none"><source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"></video><div class="masonry-overlay"><h4>Mountain Trekking</h4><span>Volta Region</span></div></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="lightbox" id="lightbox"><div class="lightbox-content" id="lightboxContent"></div><button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button><button class="lightbox-nav lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button><button class="lightbox-nav lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button></div>
+
+        <section class="search-section reveal" data-reveal="up">
+            <div class="hero-search-card"><h3 class="search-card-title">Plan Your Adventure</h3><div class="search-grid"><div class="search-field"><label>Region</label><select><option>Any Region</option></select></div><div class="search-field"><label>Experience</label><select><option>Any Style</option></select></div><div class="search-field"><label>Duration</label><select><option>Any</option></select></div><div class="search-field"><label>Budget</label><select><option>Any</option></select></div><div class="search-submit"><button class="btn btn-primary" style="width:100%;justify-content:center;"><i class="fas fa-search"></i> Search Tours</button></div></div></div>
+        </section>
+
+        <!-- Tours with reveal animations -->
+        <section class="section" id="tours">
+            <div class="section-container">
+                <div class="section-header reveal" data-reveal="up"><span class="section-label"><span class="label-gradient">Top Attractions</span></span><h2 class="section-title">Featured Sites by Region</h2></div>
+                <div class="tours-grid">
+                    <div class="tour-card reveal reveal-left" data-reveal="left"><div class="tour-image"><img src="https://images.unsplash.com/photo-1607863675672-5f6e2ceb9853?w=800&h=500&fit=crop" alt="Kwame Nkrumah Park" loading="lazy"><span class="tour-badge">Most Visited</span></div><div class="tour-content"><div class="tour-destination">Greater Accra</div><h3 class="tour-title">Kwame Nkrumah Memorial Park</h3><div class="tour-meta"><span><i class="fas fa-users"></i> 333K Visitors</span></div><p>The burial site and museum of Ghana's founding father.</p><div class="tour-footer"><div class="tour-price">$85 <span>/person</span></div><div class="tour-rating">★ 4.8</div></div></div></div>
+                    <div class="tour-card reveal reveal-scale reveal-delay-1" data-reveal="scale"><div class="tour-image"><img src="https://images.unsplash.com/photo-1590083949954-2afcfd8c6a3e?w=800&h=500&fit=crop" alt="Kakum" loading="lazy"><span class="tour-badge">#2 Visited</span></div><div class="tour-content"><div class="tour-destination">Central Region</div><h3 class="tour-title">Kakum National Park</h3><div class="tour-meta"><span><i class="fas fa-users"></i> 184K Visitors</span></div><p>Africa's only rainforest canopy walkway.</p><div class="tour-footer"><div class="tour-price">$120 <span>/person</span></div><div class="tour-rating">★ 4.9</div></div></div></div>
+                    <div class="tour-card reveal reveal-right reveal-delay-2" data-reveal="right"><div class="tour-image"><img src="https://images.unsplash.com/photo-1589482336129-1b24a84ef8b1?w=800&h=500&fit=crop" alt="Cape Coast" loading="lazy"><span class="tour-badge">UNESCO</span></div><div class="tour-content"><div class="tour-destination">Central Region</div><h3 class="tour-title">Cape Coast Castle</h3><div class="tour-meta"><span><i class="fas fa-users"></i> 120K Visitors</span></div><p>A solemn UNESCO World Heritage Site.</p><div class="tour-footer"><div class="tour-price">$95 <span>/person</span></div><div class="tour-rating">★ 4.7</div></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About with reveal animations -->
+        <section class="section" id="about">
+            <div class="section-container">
+                <div class="section-header reveal" data-reveal="up"><span class="section-label"><span class="label-gradient">Why Calabash Roots</span></span><h2 class="section-title">Travel With <span class="highlight">Ease & Expertise</span></h2></div>
+                <div class="features-grid">
+                    <div class="feature-card reveal reveal-left" data-reveal="left"><div class="feature-icon blue"><i class="fas fa-map-marked-alt"></i></div><h3>Local Expertise</h3><p>On-ground teams across all 16 regions.</p></div>
+                    <div class="feature-card reveal reveal-scale reveal-delay-1" data-reveal="scale"><div class="feature-icon pink"><i class="fas fa-shield-alt"></i></div><h3>Fully Licensed</h3><p>IATA-certified & Ghana Tourism Authority.</p></div>
+                    <div class="feature-card reveal reveal-scale reveal-delay-2" data-reveal="scale"><div class="feature-icon teal"><i class="fas fa-pencil-ruler"></i></div><h3>Tailor-Made</h3><p>Every itinerary crafted for you.</p></div>
+                    <div class="feature-card reveal reveal-right reveal-delay-3" data-reveal="right"><div class="feature-icon green"><i class="fas fa-leaf"></i></div><h3>Sustainable</h3><p>Eco-lodges & community-first tourism.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials, Contact, Footer with reveal animations -->
+        <section class="section" id="testimonials"><div class="section-container"><div class="section-header reveal" data-reveal="up"><span class="section-label"><span class="label-gradient">Traveler Stories</span></span><h2 class="section-title">What <span class="highlight">Travelers Say</span></h2></div><div class="testimonial-carousel reveal reveal-scale" data-reveal="scale" id="testimonialCarousel"><div class="testimonial-track" id="testimonialTrack"><div class="testimonial-slide"><div class="testimonial-card"><div class="testimonial-avatar-large">JD</div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Calabash Roots Travel designed the most incredible Ghanaian adventure."</p><div class="testimonial-name">James & Diana</div><div class="testimonial-trip">10-Day Heritage Tour</div><div class="testimonial-location">🇬🇧 United Kingdom</div></div></div><div class="testimonial-slide"><div class="testimonial-card"><div class="testimonial-avatar-large" style="background:linear-gradient(135deg,#f093fb,#f5576c);">AK</div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"As a solo traveler, Calabash Roots Travel exceeded all expectations."</p><div class="testimonial-name">Ama K.</div><div class="testimonial-trip">Solo Explorer</div><div class="testimonial-location">🇺🇸 United States</div></div></div><div class="testimonial-slide"><div class="testimonial-card"><div class="testimonial-avatar-large" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">MO</div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Our family reunion in Ghana was absolutely magical!"</p><div class="testimonial-name">Osei Family</div><div class="testimonial-trip">Family Journey</div><div class="testimonial-location">🇨🇦 Canada</div></div></div></div><div class="carousel-nav"><button class="carousel-prev" id="carouselPrev"><i class="fas fa-arrow-left"></i></button><div class="carousel-dots" id="carouselDots"><button class="carousel-dot active" data-index="0"></button><button class="carousel-dot" data-index="1"></button><button class="carousel-dot" data-index="2"></button></div><button class="carousel-next" id="carouselNext"><i class="fas fa-arrow-right"></i></button></div></div></div></section>
+        <section class="section" id="contact-section"><div class="section-container"><div class="section-header reveal" data-reveal="up"><span class="section-label"><span class="label-gradient">Get In Touch</span></span><h2 class="section-title">Contact <span class="highlight">Our Team</span></h2></div><div class="contact-grid"><div class="contact-info reveal reveal-left" data-reveal="left"><div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-info-content"><h4>Visit Us</h4><p>123 Independence Ave, Accra</p></div></div><div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-phone"></i></div><div class="contact-info-content"><h4>Call Us</h4><p>+233 50 123 4567</p></div></div><div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-envelope"></i></div><div class="contact-info-content"><h4>Email Us</h4><p>info@calabashrootstravel.com</p></div></div><div class="contact-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div><div class="contact-form-card reveal reveal-right" data-reveal="right"><form class="contact-form" onsubmit="handleContactSubmit(event)"><div class="form-row"><div class="form-group"><label>First Name *</label><input type="text" required></div><div class="form-group"><label>Last Name *</label><input type="text" required></div></div><div class="form-row"><div class="form-group"><label>Email *</label><input type="email" required></div><div class="form-group"><label>Phone</label><input type="tel"></div></div><div class="form-group"><label>Interested In *</label><select required><option value="">Select</option><option>Historical</option><option>Nature</option><option>Cultural</option><option>Beach</option><option>Adventure</option></select></div><div class="form-group"><label>Message *</label><textarea required></textarea></div><button type="submit" class="form-submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button></form></div></div></div></section>
+        <footer class="footer"><div class="footer-container"><div class="footer-grid"><div class="footer-brand reveal reveal-left" data-reveal="left"><a href="#" class="nav-logo"><span class="logo-icon">✧</span>Calabash Roots Travel</a><p>Crafting unforgettable Ghanaian journeys since 2012.</p><div class="footer-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div><div class="footer-links-wrapper reveal reveal-right" data-reveal="right"><div class="footer-links-column"><h4>Quick Links</h4><ul class="footer-links-list"><li><a href="#tours">Featured Tours</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#about">About Us</a></li><li><a href="#testimonials">Stories</a></li><li><a href="#contact-section">Contact</a></li></ul></div><div class="footer-links-column"><h4>Company</h4><ul class="footer-links-list"><li><a href="#">Our Team</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li><li><a href="#">Privacy</a></li></ul></div></div></div><div class="footer-bottom reveal reveal-delay-1" data-reveal="up"><p>&copy; 2026 Calabash Roots Travel. IATA #12-3456789</p><div class="footer-payment"><span>We Accept:</span><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-amex"></i></div></div></div></footer>
+    </div>
+
+    <script>
+        // ==================== SCROLL REVEAL ====================
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+        
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ==================== LAZY LOADING ====================
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                    }
+                    img.classList.add('loaded');
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '100px 0px'
+        });
+        
+        lazyImages.forEach(img => {
+            if (img.src) {
+                img.dataset.src = img.src;
+            }
+            imageObserver.observe(img);
+        });
+
+        function handleContactSubmit(e) { e.preventDefault(); const btn = e.target.querySelector('.form-submit-btn'); btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...'; btn.style.opacity = '0.8'; setTimeout(() => { alert('Thank you! Calabash Roots Travel will reply within 24 hours.'); e.target.reset(); btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message'; btn.style.opacity = '1'; }, 1500); }
+        const menuToggle = document.getElementById('menuToggle'), menuClose = document.getElementById('menuClose'), slideMenu = document.getElementById('slideMenu'), menuOverlay = document.getElementById('menuOverlay');
+        function openMenu() { slideMenu.classList.add('active'); menuOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeMenu() { slideMenu.classList.remove('active'); menuOverlay.classList.remove('active'); document.body.style.overflow = ''; }
+        menuToggle.addEventListener('click', openMenu); menuClose.addEventListener('click', closeMenu); menuOverlay.addEventListener('click', closeMenu);
+        document.querySelectorAll('.slide-menu-links a, .slide-menu-cta').forEach(l => l.addEventListener('click', closeMenu));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeMenu(); closeLightbox(); } });
+        const themeToggle = document.getElementById('themeToggle'), html = document.documentElement;
+        html.setAttribute('data-theme', localStorage.getItem('calabashRootsTheme') || 'dark');
+        function updateBtn() { themeToggle.querySelector('i').className = html.getAttribute('data-theme') === 'dark' ? 'fas fa-sun' : 'fas fa-moon'; }
+        updateBtn();
+        themeToggle.addEventListener('click', () => { html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); localStorage.setItem('calabashRootsTheme', html.getAttribute('data-theme')); updateBtn(); });
+        window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
+        const filterBtns = document.querySelectorAll('.gallery-filter'), masonryItems = document.querySelectorAll('.masonry-item');
+        filterBtns.forEach(btn => { btn.addEventListener('click', () => { filterBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active'); const filter = btn.getAttribute('data-filter'); masonryItems.forEach(item => { item.style.display = (filter === 'all' || item.getAttribute('data-category').includes(filter)) ? 'block' : 'none'; }); }); });
+        const lightbox = document.getElementById('lightbox'), lightboxContent = document.getElementById('lightboxContent'), lightboxClose = document.getElementById('lightboxClose'), lightboxPrev = document.getElementById('lightboxPrev'), lightboxNext = document.getElementById('lightboxNext');
+        let currentLightboxIndex = -1, lightboxItems = [];
+        function openLightbox(index) { lightboxItems = Array.from(document.querySelectorAll('.masonry-item img, .masonry-item video')); currentLightboxIndex = index; updateLightbox(); lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeLightbox() { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
+        function updateLightbox() { const item = lightboxItems[currentLightboxIndex]; if (item.tagName === 'IMG') { lightboxContent.innerHTML = `<img src="${item.src}" alt="${item.alt}">`; } else if (item.tagName === 'VIDEO') { lightboxContent.innerHTML = `<video controls autoplay><source src="${item.querySelector('source').src}" type="video/mp4"></video>`; } lightboxPrev.style.display = currentLightboxIndex > 0 ? 'flex' : 'none'; lightboxNext.style.display = currentLightboxIndex < lightboxItems.length - 1 ? 'flex' : 'none'; }
+        document.querySelectorAll('.masonry-item').forEach((item) => { item.addEventListener('click', () => { const img = item.querySelector('img'), video = item.querySelector('video'); if (img || video) { const allItems = Array.from(document.querySelectorAll('.masonry-item img, .masonry-item video')); openLightbox(allItems.indexOf(img || video)); } }); });
+        lightboxClose.addEventListener('click', closeLightbox); lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+        lightboxPrev.addEventListener('click', () => { if (currentLightboxIndex > 0) { currentLightboxIndex--; updateLightbox(); } });
+        lightboxNext.addEventListener('click', () => { if (currentLightboxIndex < lightboxItems.length - 1) { currentLightboxIndex++; updateLightbox(); } });
+        document.addEventListener('keydown', (e) => { if (lightbox.classList.contains('active')) { if (e.key === 'ArrowLeft' && currentLightboxIndex > 0) { currentLightboxIndex--; updateLightbox(); } if (e.key === 'ArrowRight' && currentLightboxIndex < lightboxItems.length - 1) { currentLightboxIndex++; updateLightbox(); } } });
+        let carouselSlide = 0, carouselInterval;
+        function goToSlide(i) { const track = document.getElementById('testimonialTrack'), dots = document.querySelectorAll('.carousel-dot'); if(!track||!dots.length) return; carouselSlide = (i + dots.length) % dots.length; track.style.transform = `translateX(-${carouselSlide * 100}%)`; dots.forEach((d,j) => d.classList.toggle('active', j===carouselSlide)); }
+        function startCarousel() { carouselInterval = setInterval(() => goToSlide(carouselSlide + 1), 5000); }
+        document.getElementById('carouselPrev')?.addEventListener('click', () => { goToSlide(carouselSlide - 1); clearInterval(carouselInterval); startCarousel(); });
+        document.getElementById('carouselNext')?.addEventListener('click', () => { goToSlide(carouselSlide + 1); clearInterval(carouselInterval); startCarousel(); });
+        document.querySelectorAll('.carousel-dot').forEach(d => d.addEventListener('click', () => { goToSlide(parseInt(d.dataset.index)); clearInterval(carouselInterval); startCarousel(); }));
+        startCarousel();
+    </script>
+</body>
+</html>
